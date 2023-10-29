@@ -12,13 +12,13 @@ public class UsuarioDB {
     private int id;
     private String nome;
     private String senha;
-    private String tipo;
+    private int tipo;
     
     public void dadosUsuario(String nomeLog, String senhaLog) throws Exception{
         int id = 0;
         String nome = "";
         String senha = "";
-        String tipo = "";
+        int tipo = 0;
         
         
         String sql = "SELECT * FROM usuario_simples WHERE nome = ?;";
@@ -36,8 +36,8 @@ public class UsuarioDB {
             while (rs.next()) {
               id = rs.getInt("id");
               nome = rs.getString("nome");
-              senha = rs.getNString("senha");
-              tipo = rs.getNString("tipo");
+              senha = rs.getString("senha");
+              tipo = rs.getInt("tipo");
             }
             
             this.id = id;
@@ -59,7 +59,7 @@ public class UsuarioDB {
         return this.senha;
     }
     
-    public String getTipo(){
+    public int getTipo(){
         return tipo;
     }
 }

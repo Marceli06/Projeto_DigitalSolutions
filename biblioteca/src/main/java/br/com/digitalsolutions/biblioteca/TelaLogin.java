@@ -53,7 +53,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jSenha = new javax.swing.JLabel();
         edtSenha = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
-        htxtCadastreSe = new javax.swing.JLabel();
         htxtEsqueci = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,14 +80,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
 
-        htxtCadastreSe.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        htxtCadastreSe.setText("Cadastre-se");
-        htxtCadastreSe.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                htxtCadastreSeMouseClicked(evt);
-            }
-        });
-
         htxtEsqueci.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         htxtEsqueci.setText("Esqueci minha senha");
         htxtEsqueci.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,10 +105,7 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(edtUsuario)
                             .addComponent(jSenha)
                             .addComponent(edtSenha)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(htxtEsqueci)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(htxtCadastreSe)))))
+                            .addComponent(htxtEsqueci))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -136,9 +124,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(btnEntrar)
                 .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(htxtCadastreSe)
-                    .addComponent(htxtEsqueci))
+                .addComponent(htxtEsqueci)
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -184,11 +170,6 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaEsqueci telaEsqueci = new TelaEsqueci();
         telaEsqueci.setVisible(true);
     }//GEN-LAST:event_htxtEsqueciMouseClicked
-
-    private void htxtCadastreSeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_htxtCadastreSeMouseClicked
-        TelaCadastrar telaCadastrar = new TelaCadastrar();
-        telaCadastrar.setVisible(true);
-    }//GEN-LAST:event_htxtCadastreSeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -254,12 +235,13 @@ public class TelaLogin extends javax.swing.JFrame {
                     
                     //Verifica o tipo de usuário
                     switch (usuario.getTipo()) {
-                        case "admin":
-                            new TelaInicialAdmin().setVisible(true);
+                        case 1:
+                            new TelaInicialUsuario().setVisible(true);
+                            
                             break;
                             
-                        case "comun":
-                            new TelaInicialUsuario().setVisible(true);
+                        case 2:
+                            new TelaInicialAdmin().setVisible(true);
                             break;
                         default:
                             throw new AssertionError();
@@ -288,7 +270,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnEntrar;
     private javax.swing.JPasswordField edtSenha;
     private javax.swing.JTextField edtUsuario;
-    private javax.swing.JLabel htxtCadastreSe;
     private javax.swing.JLabel htxtEsqueci;
     private javax.swing.JLabel jBemVindo;
     private javax.swing.JLabel jLogin;

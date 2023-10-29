@@ -23,10 +23,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jUsuarioNome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="358" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="edtNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="edtEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jConfSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="edtConfSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="edtSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="306" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -34,17 +43,54 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jUsuarioNome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="278" max="32767" attributes="0"/>
+              <Component id="jNome" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="edtNome" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jEmail" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="edtEmail" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSenha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="edtSenha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jConfSenha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="edtConfSenha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="100" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jUsuarioNome">
+    <Component class="javax.swing.JLabel" name="jNome">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Admin"/>
+        <Property name="text" type="java.lang.String" value="Nome"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="edtNome">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jEmail">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Email"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="edtEmail">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jSenha">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Senha"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jConfSenha">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Confirmar senha"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="edtConfSenha">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="edtSenha">
     </Component>
   </SubComponents>
 </Form>

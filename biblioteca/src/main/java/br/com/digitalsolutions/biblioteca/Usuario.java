@@ -8,9 +8,9 @@ public class Usuario {
     private int id;
     private String nome;
     private String senha;
-    private String tipo;
+    private int tipo;
     
-    public Usuario(int id, String nome, String senha, String tipo){
+    public Usuario(int id, String nome, String senha, int tipo){
         this.id = id;
         this.nome = nome;
         this.senha = senha;
@@ -41,11 +41,11 @@ public class Usuario {
         this.senha = senha;
     }
     
-    public String getTipo(){
+    public int getTipo(){
         return tipo;
     }
     
-    public void setTipo(String tipo){
+    public void setTipo(int tipo){
         this.tipo = tipo;
     }
 }
