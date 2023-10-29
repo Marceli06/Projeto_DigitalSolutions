@@ -194,6 +194,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastre-se"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="htxtCadastreSeMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="htxtEsqueci">
               <Properties>
@@ -202,6 +205,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Esqueci minha senha"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="htxtEsqueciMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

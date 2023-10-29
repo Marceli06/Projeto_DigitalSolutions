@@ -18,7 +18,7 @@ import jdk.jfr.Event;
  * @author 823215404
  */
 public class TelaLogin extends javax.swing.JFrame {
-    String usuario, senha;
+    String usuarioEdt, senhaEdt;
     /**
      * Creates new form TelaLogin
      */
@@ -30,38 +30,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                usuario = edtUsuario.getText();
-                senha = edtSenha.getText();
-                
-                if ( usuario.length() != 0 ){
-                    //var use = new Usuario();
-                    var UsuarioDB = new UsuarioDB();
-                    
-                    
-                    try{
-                        UsuarioDB.dadosUsuario(usuario,senha);
-                        boolean teste = false;
-                        if(UsuarioDB.getNome().equals(usuario) && UsuarioDB.getSenha().equals(senha)){
-                            teste = true;
-                        }
-                        
-                        if(teste){
-                            JOptionPane.showMessageDialog(null,"Login bem sucedido!");
-                        }else{
-                            JOptionPane.showMessageDialog(null,"Usuario ou senha incorretos \n");
-                        }
-                        
-                    }catch (Exception ex) {
-                        JOptionPane.showMessageDialog(null,"Erro de conexão \n\n" + ex);
-                    }
-                    
-                    /*try {
-                        //JOptionPane.showMessageDialog(null,"usuario : "+
-                          //      UsuarioBD.procurar_usuario(usuario) + "\nSenha : "+ senha);
-                    } catch (Exception ex) {
-                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
-                }
+                Entrar();
             }
         });
     }
@@ -114,9 +83,19 @@ public class TelaLogin extends javax.swing.JFrame {
 
         htxtCadastreSe.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         htxtCadastreSe.setText("Cadastre-se");
+        htxtCadastreSe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                htxtCadastreSeMouseClicked(evt);
+            }
+        });
 
         htxtEsqueci.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         htxtEsqueci.setText("Esqueci minha senha");
+        htxtEsqueci.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                htxtEsqueciMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -201,6 +180,16 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void htxtEsqueciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_htxtEsqueciMouseClicked
+        TelaEsqueci telaEsqueci = new TelaEsqueci();
+        telaEsqueci.setVisible(true);
+    }//GEN-LAST:event_htxtEsqueciMouseClicked
+
+    private void htxtCadastreSeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_htxtCadastreSeMouseClicked
+        TelaCadastrar telaCadastrar = new TelaCadastrar();
+        telaCadastrar.setVisible(true);
+    }//GEN-LAST:event_htxtCadastreSeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -236,6 +225,52 @@ public class TelaLogin extends javax.swing.JFrame {
         });
             
             
+    }
+    
+    
+    public void Entrar(){
+        usuarioEdt = edtUsuario.getText();
+        senhaEdt = edtSenha.getText();
+                
+        if ( usuarioEdt.length() != 0 ){
+            
+            var UsuarioDB = new UsuarioDB();
+            
+                    
+                    
+            try{
+                UsuarioDB.dadosUsuario(usuarioEdt,senhaEdt);
+                
+                boolean teste = false;
+                
+                if(UsuarioDB.getNome().equals(usuarioEdt) && UsuarioDB.getSenha().equals(senhaEdt)){
+                    teste = true;
+                }
+
+                if(teste){
+                    Usuario usuario = new Usuario(UsuarioDB.getId(),usuarioEdt,senhaEdt);
+                    
+                    TelaInicial telaInicial = new TelaInicial();
+                    telaInicial.setVisible(true);
+                    //JOptionPane.showMessageDialog(null,"Login bem sucedido!");
+                    //System.out.println("usuario : "+ usuario.getNome()+"\nsenha: "+usuario.getSenha());
+                }
+                
+                else{
+                    JOptionPane.showMessageDialog(null,"Usuario ou senha incorretos \n");
+                }
+
+            }catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,"Erro de conexão \n\n" + ex);
+            }
+                    
+            /*try {
+                 //JOptionPane.showMessageDialog(null,"usuario : "+
+            //      UsuarioBD.procurar_usuario(usuario) + "\nSenha : "+ senha);
+            } catch (Exception ex) {
+                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+        }
     }
     
     

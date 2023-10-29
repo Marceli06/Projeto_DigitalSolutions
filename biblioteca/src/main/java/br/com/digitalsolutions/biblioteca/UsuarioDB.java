@@ -9,10 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UsuarioDB {
-    public String nome;
-    public String senha;
+    private int id;
+    private String nome;
+    private String senha;
     
     public void dadosUsuario(String nomeLog, String senhaLog) throws Exception{
+        int id = 0;
         String nome = "";
         String senha = "";
         
@@ -30,13 +32,19 @@ public class UsuarioDB {
             
             // itera no ResultSet
             while (rs.next()) {
+              id = rs.getInt("id");
               nome = rs.getString("nome");
               senha = rs.getNString("senha");
             }
             
+            this.id = id;
             this.nome = nome;
             this.senha = senha;
         }
+    }
+    
+    public int getId(){
+        return this.id;
     }
     
     public  String getNome(){
