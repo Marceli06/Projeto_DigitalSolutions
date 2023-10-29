@@ -248,15 +248,24 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
 
                 if(teste){
-                    Usuario usuario = new Usuario(UsuarioDB.getId(),usuarioEdt,senhaEdt);
+                    Usuario usuario = new Usuario(UsuarioDB.getId(),usuarioEdt,senhaEdt,UsuarioDB.getTipo());
                     
-                    TelaInicial telaInicial = new TelaInicial();
-                    telaInicial.setVisible(true);
-                    //JOptionPane.showMessageDialog(null,"Login bem sucedido!");
-                    //System.out.println("usuario : "+ usuario.getNome()+"\nsenha: "+usuario.getSenha());
-                }
-                
-                else{
+                    
+                    
+                    //Verifica o tipo de usuário
+                    switch (usuario.getTipo()) {
+                        case "admin":
+                            new TelaInicialAdmin().setVisible(true);
+                            break;
+                            
+                        case "comun":
+                            new TelaInicialUsuario().setVisible(true);
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+                    
+                }else{
                     JOptionPane.showMessageDialog(null,"Usuario ou senha incorretos \n");
                 }
 

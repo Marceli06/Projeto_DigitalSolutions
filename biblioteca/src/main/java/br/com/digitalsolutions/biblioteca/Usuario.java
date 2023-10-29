@@ -8,11 +8,13 @@ public class Usuario {
     private int id;
     private String nome;
     private String senha;
+    private String tipo;
     
-    public Usuario(int id, String nome, String senha){
+    public Usuario(int id, String nome, String senha, String tipo){
         this.id = id;
         this.nome = nome;
         this.senha = senha;
+        this.tipo = tipo;
     }
     
     public int getId(){
@@ -37,5 +39,13 @@ public class Usuario {
     
     public void setSenha(String senha){
         this.senha = senha;
+    }
+    
+    public String getTipo(){
+        return tipo;
+    }
+    
+    public void setTipo(String tipo){
+        this.tipo = tipo;
     }
 }
