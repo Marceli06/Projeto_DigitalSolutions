@@ -11,9 +11,13 @@ package br.com.digitalsolutions.biblioteca;
 public class Biblioteca {
 
     public static void main(String[] args) {
-        TelaLogin tela = new TelaLogin();
-        tela.show();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaLogin().setVisible(true);
+            }
+        });
         
         
     }
 }
+    

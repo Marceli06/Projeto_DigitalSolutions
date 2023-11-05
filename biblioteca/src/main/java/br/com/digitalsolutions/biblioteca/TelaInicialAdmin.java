@@ -4,6 +4,8 @@
  */
 package br.com.digitalsolutions.biblioteca;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Silas
@@ -34,6 +36,8 @@ public class TelaInicialAdmin extends javax.swing.JFrame {
         jConfSenha = new javax.swing.JLabel();
         edtConfSenha = new javax.swing.JPasswordField();
         edtSenha = new javax.swing.JPasswordField();
+        btnCancelar = new javax.swing.JButton();
+        btnCadastar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,22 +49,42 @@ public class TelaInicialAdmin extends javax.swing.JFrame {
 
         jConfSenha.setText("Confirmar senha");
 
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnCadastar.setText("Cadastrar");
+        btnCadastar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jNome)
-                    .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jEmail)
-                    .addComponent(edtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSenha)
                     .addComponent(jConfSenha)
-                    .addComponent(edtConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(306, Short.MAX_VALUE))
+                    .addComponent(edtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                    .addComponent(edtEmail)
+                    .addComponent(edtSenha)
+                    .addComponent(edtConfSenha))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(btnCancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(btnCadastar)
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,11 +105,23 @@ public class TelaInicialAdmin extends javax.swing.JFrame {
                 .addComponent(jConfSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edtConfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnCadastar))
+                .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCadastarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastarActionPerformed
+        Cadastrar();
+    }//GEN-LAST:event_btnCadastarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,16 +152,31 @@ public class TelaInicialAdmin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaInicialAdmin().setVisible(true);
-            }
-        });
         
-        //jUsuarioNome.setText();
+    }
+    
+    public void Cadastrar(){
+        String nome = edtNome.getText();
+        String email = edtEmail.getText();
+        String senha = edtSenha.getText();
+        String confirmaSenha= edtConfSenha.getText();
+        
+        UsuarioCadastrado useCad = new UsuarioCadastrado(nome, email, senha, 1);
+        
+        UsuarioDB useDB = new UsuarioDB();
+        try{
+            useDB.cadastar(useCad);
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso !!");
+            this.dispose();
+        }catch(Exception e){
+            
+        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JPasswordField edtConfSenha;
     private javax.swing.JTextField edtEmail;
     private javax.swing.JTextField edtNome;

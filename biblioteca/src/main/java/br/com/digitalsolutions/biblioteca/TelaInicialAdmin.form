@@ -25,17 +25,24 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="edtNome" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="edtEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jSenha" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jConfSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="edtConfSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="edtSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="edtNome" alignment="0" pref="371" max="32767" attributes="0"/>
+                  <Component id="edtEmail" alignment="0" max="32767" attributes="0"/>
+                  <Component id="edtSenha" alignment="0" max="32767" attributes="0"/>
+                  <Component id="edtConfSenha" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="306" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="111" max="32767" attributes="0"/>
+              <Component id="btnCadastar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,7 +65,12 @@
               <Component id="jConfSenha" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="edtConfSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="100" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCadastar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,6 +103,22 @@
     <Component class="javax.swing.JPasswordField" name="edtConfSenha">
     </Component>
     <Component class="javax.swing.JPasswordField" name="edtSenha">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCadastar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

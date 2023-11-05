@@ -7,12 +7,14 @@ package br.com.digitalsolutions.biblioteca;
 public class Usuario {
     private int id;
     private String nome;
+    private String emal;
     private String senha;
     private int tipo;
     
-    public Usuario(int id, String nome, String senha, int tipo){
+    public Usuario(int id, String nome, String email, String senha, int tipo){
         this.id = id;
         this.nome = nome;
+        this.emal = email;
         this.senha = senha;
         this.tipo = tipo;
     }
@@ -31,6 +33,14 @@ public class Usuario {
     
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public String getEmal() {
+        return emal;
+    }
+
+    public void setEmal(String emal) {
+        this.emal = emal;
     }
     
     public String getSenha(){

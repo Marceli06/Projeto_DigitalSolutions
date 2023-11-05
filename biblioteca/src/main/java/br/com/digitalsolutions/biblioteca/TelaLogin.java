@@ -25,14 +25,6 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         
-        
-        
-        btnEntrar.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrar();
-            }
-        });
     }
 
     /**
@@ -79,6 +71,11 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
+        btnEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEntrarMouseClicked(evt);
+            }
+        });
 
         htxtEsqueci.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         htxtEsqueci.setText("Esqueci minha senha");
@@ -169,7 +166,13 @@ public class TelaLogin extends javax.swing.JFrame {
     private void htxtEsqueciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_htxtEsqueciMouseClicked
         TelaEsqueci telaEsqueci = new TelaEsqueci();
         telaEsqueci.setVisible(true);
+        
     }//GEN-LAST:event_htxtEsqueciMouseClicked
+
+    private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
+        Entrar();
+        
+    }//GEN-LAST:event_btnEntrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -199,11 +202,6 @@ public class TelaLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLogin().setVisible(true);
-            }
-        });
             
             
     }
@@ -214,53 +212,36 @@ public class TelaLogin extends javax.swing.JFrame {
         senhaEdt = edtSenha.getText();
                 
         if ( usuarioEdt.length() != 0 ){
-            
             var UsuarioDB = new UsuarioDB();
-            
-                    
-                    
+             
             try{
                 UsuarioDB.dadosUsuario(usuarioEdt,senhaEdt);
                 
                 boolean teste = false;
-                
-                if(UsuarioDB.getNome().equals(usuarioEdt) && UsuarioDB.getSenha().equals(senhaEdt)){
-                    teste = true;
-                }
 
-                if(teste){
-                    Usuario usuario = new Usuario(UsuarioDB.getId(),usuarioEdt,senhaEdt,UsuarioDB.getTipo());
-                    
-                    
-                    
+                if(UsuarioDB.getNome().equals(usuarioEdt) && UsuarioDB.getSenha().equals(senhaEdt)){
+                    this.dispose();
                     //Verifica o tipo de usuário
-                    switch (usuario.getTipo()) {
+                    switch (UsuarioDB.getTipo()) {
                         case 1:
                             new TelaInicialUsuario().setVisible(true);
-                            
                             break;
-                            
                         case 2:
-                            new TelaInicialAdmin().setVisible(true);
+                            java.awt.EventQueue.invokeLater(new Runnable() {
+                                public void run() {
+                                    new TelaMenu().setVisible(true);
+                                }
+                            });
                             break;
                         default:
                             throw new AssertionError();
                     }
-                    
                 }else{
                     JOptionPane.showMessageDialog(null,"Usuario ou senha incorretos \n");
                 }
-
             }catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,"Erro de conexão \n\n" + ex);
             }
-                    
-            /*try {
-                 //JOptionPane.showMessageDialog(null,"usuario : "+
-            //      UsuarioBD.procurar_usuario(usuario) + "\nSenha : "+ senha);
-            } catch (Exception ex) {
-                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
         }
     }
     
