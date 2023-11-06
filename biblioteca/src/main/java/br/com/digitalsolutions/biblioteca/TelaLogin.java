@@ -216,8 +216,6 @@ public class TelaLogin extends javax.swing.JFrame {
              
             try{
                 UsuarioDB.dadosUsuario(usuarioEdt,senhaEdt);
-                
-                boolean teste = false;
 
                 if(UsuarioDB.getNome().equals(usuarioEdt) && UsuarioDB.getSenha().equals(senhaEdt)){
                     this.dispose();
