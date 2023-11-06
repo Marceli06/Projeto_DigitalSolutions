@@ -1,5 +1,5 @@
-HOST="bancobiblioteca-sabrina-40e4.aivencloud.com";
-PORT="11750";
+HOST="mysql-cc30a5a-marcelims2004-1d0e.aivencloud.com";
+PORT="10432";
 USER="avnadmin";
-PASSWORD="AVNS_edQSfPhQZ4w6l0qR5Zx";
+PASSWORD="AVNS_6N-mYSOGlrmFUxrTYe4";
 DB="defaultdb";

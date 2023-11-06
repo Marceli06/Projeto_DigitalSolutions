@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import jdk.jfr.Event;
 
+
 /**
  *
  * @author 823215404
@@ -78,6 +79,7 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         htxtEsqueci.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        htxtEsqueci.setForeground(new java.awt.Color(0, 102, 204));
         htxtEsqueci.setText("Esqueci minha senha");
         htxtEsqueci.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
