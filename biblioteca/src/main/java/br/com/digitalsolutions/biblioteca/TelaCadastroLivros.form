@@ -85,18 +85,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jGenero" max="32767" attributes="0"/>
-                                      <Component id="jTitulo" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jGenero" max="32767" attributes="0"/>
+                                  <Component id="jTitulo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="edtTitulo" pref="150" max="32767" attributes="0"/>
                                   <Component id="edtGenero" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jEditora" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jEditora" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
