@@ -50,7 +50,7 @@ public class UsuarioDB {
         }
     }
     
-    public void cadastar(UsuarioCadastrado use) throws Exception{
+    public void cadastarUsuario(UsuarioCadastrado use) throws Exception{
         
         String sql = "INSERT INTO usuario_simples (nome,email,senha,tipo) values ( ?, ?, ?, ?)";
         

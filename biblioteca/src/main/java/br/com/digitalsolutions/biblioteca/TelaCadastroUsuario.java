@@ -225,7 +225,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         UsuarioDB cadUse = new UsuarioDB();
                         
                         try{
-                            cadUse.cadastar(novoUsuario);
+                            cadUse.cadastarUsuario(novoUsuario);
                             JOptionPane.showMessageDialog(null, "Usuário Cadastrado");
                             this.dispose();
                         }catch(Exception e){

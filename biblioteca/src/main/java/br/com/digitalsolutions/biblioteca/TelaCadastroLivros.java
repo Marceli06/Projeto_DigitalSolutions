@@ -16,7 +16,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
      * Creates new form TelaCadastroLivros
      */
     
-    String tituloEdt,editoraEdt,autorEdt,generoEdt;
+    String titulo,editora,autor,genero;
     
     
     public TelaCadastroLivros() {
@@ -203,13 +203,29 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     }
     
     public void Cadastrar(){
-        tituloEdt = edtTitulo.getText();
-        autorEdt = edtAutor.getText();
-        editoraEdt = edtEditora.getText();
-        generoEdt = edtGenero.getText();
+        titulo = edtTitulo.getText();
+        autor = edtAutor.getText();
+        editora = edtEditora.getText();
+        genero = edtGenero.getText();
                 
-        
+        if (titulo.length()!= 0 && autor.length()!= 0 && genero.length() !=0 && editora.length() !=0){
+            Livro livro = new Livro(titulo,autor,genero,editora);
+            LivroDB livroDB = new LivroDB();
+            
+            try{
+                livroDB.cadastrarLivro(livro);
+                JOptionPane.showMessageDialog(null, "Livro Cadastrado");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Erro");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Dados Inválidos");
+            
+        }
     }
+    
+        
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
