@@ -6,7 +6,7 @@ package br.com.digitalsolutions.biblioteca;
 
 /**
  *
- * @author 823215404
+ * @author Silas Rodrigues
  */
 public class Biblioteca {
 

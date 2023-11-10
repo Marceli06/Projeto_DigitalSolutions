@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
  * @author Silas
  */
 public class TelaCadastroUsuario extends javax.swing.JFrame {
+    private String nome , email, senha, confirmSenha;
+    private int tipo = 1;
 
     /**
      * Creates new form TelaInicial
@@ -34,7 +36,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jEmail = new javax.swing.JLabel();
         jSenha = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        checkBTipo = new javax.swing.JCheckBox();
+        chTipo = new javax.swing.JCheckBox();
         edtNome = new javax.swing.JTextField();
         edtEmail = new javax.swing.JTextField();
         btnConfirmar = new javax.swing.JButton();
@@ -63,13 +65,18 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel5.setText("Confirmar senha:");
 
-        checkBTipo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        checkBTipo.setText("Funcionário");
+        chTipo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        chTipo.setText("Funcionário");
 
         btnConfirmar.setBackground(new java.awt.Color(102, 102, 102));
         btnConfirmar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,7 +99,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                 .addComponent(edtConfirmSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(checkBTipo)))
+                        .addComponent(chTipo)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -115,7 +122,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(edtConfirmSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(checkBTipo)
+                .addComponent(chTipo)
                 .addGap(18, 18, 18)
                 .addComponent(btnConfirmar)
                 .addGap(38, 38, 38))
@@ -162,6 +169,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        Cadastrar();
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,15 +209,46 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }
     
     public void Cadastrar(){
+        nome = edtNome.getText();
+        email = edtEmail.getText();
+        senha = edtSenha.getText();
+        confirmSenha = edtConfirmSenha.getText();
         
-        
-        
+        if(nome.length() != 0){
+            if(email.length() != 0){
+                if(senha.length() != 0){
+                    if(senha.equals(confirmSenha)){
+                        if(chTipo.isSelected())
+                            tipo = 2;
+                        
+                        UsuarioCadastrado novoUsuario = new UsuarioCadastrado(nome, email, senha, tipo);
+                        UsuarioDB cadUse = new UsuarioDB();
+                        
+                        try{
+                            cadUse.cadastarUsuario(novoUsuario);
+                            JOptionPane.showMessageDialog(null, "Usuário Cadastrado");
+                            this.dispose();
+                        }catch(Exception e){
+                            JOptionPane.showMessageDialog(null, "Tente novamente mais tarde");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Senhas não correspondentes");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Senha inválido");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Email inválido");
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "Usuário inválido");
+        }
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
-    private javax.swing.JCheckBox checkBTipo;
+    private javax.swing.JCheckBox chTipo;
     private javax.swing.JPasswordField edtConfirmSenha;
     private javax.swing.JTextField edtEmail;
     private javax.swing.JTextField edtNome;
