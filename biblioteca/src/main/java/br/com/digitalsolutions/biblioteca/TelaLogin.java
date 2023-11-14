@@ -6,6 +6,7 @@ package br.com.digitalsolutions.biblioteca;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Action;
@@ -16,10 +17,11 @@ import jdk.jfr.Event;
 
 /**
  *
- * @author 823215404
+ * @author sabrina
  */
 public class TelaLogin extends javax.swing.JFrame {
-    String usuarioEdt, senhaEdt;
+    private String usuarioEdt, senhaEdt;
+    private Properties properties;
     /**
      * Creates new form TelaLogin
      */
@@ -27,7 +29,11 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         
     }
-
+    
+    public TelaLogin(java.util.Properties properties){
+        this();
+        this.properties = properties;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -214,7 +220,7 @@ public class TelaLogin extends javax.swing.JFrame {
         senhaEdt = edtSenha.getText();
                 
         if ( usuarioEdt.length() != 0 ){
-            var UsuarioDB = new UsuarioDB();
+            var UsuarioDB = new UsuarioDB(properties);
              
             try{
                 UsuarioDB.dadosUsuario(usuarioEdt,senhaEdt);

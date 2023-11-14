@@ -4,6 +4,7 @@
  */
 package br.com.digitalsolutions.biblioteca;
 
+import java.util.Properties;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +14,8 @@ import javax.swing.JOptionPane;
 public class TesteConexao {
     public static void main(String[] args){
         try{
-            var factory = new ConnectionFactory();
+            Properties properties;
+            var factory = new ConnectionFactory(properties);
             var minhaConexao = factory.conectar();
             JOptionPane.showMessageDialog(
                     null,"Conectou!!");
