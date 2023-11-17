@@ -223,14 +223,14 @@ public class TelaLogin extends javax.swing.JFrame {
                     this.dispose();
                     //Verifica o tipo de usuário
                     switch (UsuarioDB.getTipo()) {
-                        case 1:
+                        case 1://comum
                             java.awt.EventQueue.invokeLater(new Runnable() {
                                 public void run() {
                                     new TelaCadastroLivros().setVisible(true);
                                 }
                             });
                             break;
-                        case 2:
+                        case 2://admin
                             java.awt.EventQueue.invokeLater(new Runnable() {
                                 public void run() {
                                     new TelaMenu().setVisible(true);
