@@ -4,6 +4,9 @@
  */
 package br.com.digitalsolutions.biblioteca;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +16,9 @@ import javax.swing.JOptionPane;
 public class TesteConexao {
     public static void main(String[] args){
         try{
-            var factory = new ConnectionFactory();
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(new File("conf.properties")));
+            var factory = new ConnectionFactory(properties);
             var minhaConexao = factory.conectar();
             JOptionPane.showMessageDialog(
                     null,"Conectou!!");

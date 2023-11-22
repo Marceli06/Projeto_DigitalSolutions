@@ -4,6 +4,8 @@
  */
 package br.com.digitalsolutions.biblioteca;
 
+
+import java.util.Properties;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +15,18 @@ import javax.swing.JOptionPane;
 public class TelaCadastroUsuario extends javax.swing.JFrame {
     private String nome , email, senha, confirmSenha;
     private int tipo = 1;
+    private Properties properties;
 
     /**
      * Creates new form TelaInicial
      */
     public TelaCadastroUsuario() {
         initComponents();
+    }
+    
+    public TelaCadastroUsuario(java.util.Properties properties){
+        this();
+        this.properties = properties;
     }
 
     /**
@@ -42,6 +50,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
         edtSenha = new javax.swing.JPasswordField();
         edtConfirmSenha = new javax.swing.JPasswordField();
+        btnSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,6 +87,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,7 +115,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                                 .addComponent(edtConfirmSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(chTipo)))
+                        .addComponent(chTipo))
+                    .addComponent(btnSair))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -125,7 +142,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addComponent(chTipo)
                 .addGap(18, 18, 18)
                 .addComponent(btnConfirmar)
-                .addGap(38, 38, 38))
+                .addGap(15, 15, 15)
+                .addComponent(btnSair))
         );
 
         jLabel1.setFont(new java.awt.Font("Georgia", 3, 100)); // NOI18N
@@ -172,6 +190,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         Cadastrar();
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaLogin().setVisible(true);
+            }
+        });
+       this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,7 +249,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                             tipo = 2;
                         
                         UsuarioCadastrado novoUsuario = new UsuarioCadastrado(nome, email, senha, tipo);
-                        UsuarioDB cadUse = new UsuarioDB();
+                        UsuarioDB cadUse = new UsuarioDB(properties);
                         
                         try{
                             cadUse.cadastarUsuario(novoUsuario);
@@ -248,6 +275,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnSair;
     private javax.swing.JCheckBox chTipo;
     private javax.swing.JPasswordField edtConfirmSenha;
     private javax.swing.JTextField edtEmail;

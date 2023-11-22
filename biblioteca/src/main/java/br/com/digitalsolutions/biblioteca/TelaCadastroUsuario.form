@@ -107,6 +107,7 @@
                               <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
                               <Component id="chTipo" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="btnSair" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
@@ -135,7 +136,8 @@
                       <Component id="chTipo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="btnSair" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -205,6 +207,14 @@
             <Component class="javax.swing.JPasswordField" name="edtSenha">
             </Component>
             <Component class="javax.swing.JPasswordField" name="edtConfirmSenha">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSair">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sair"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
