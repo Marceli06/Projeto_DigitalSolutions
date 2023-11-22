@@ -11,14 +11,7 @@ import java.sql.DriverManager;
 import java.util.Properties;
 
 
-public class ConnectionFactory {
-//    private static final String host = "bancobiblioteca-sabrina-40e4.aivencloud.com";;;;;
-//    private static final String port = "11750";
-//    private static final String user = "avnadmin";
-//    //maquinas da USJT: senha anima123
-//    private static final String password = "AVNS_edQSfPhQZ4w6l0qR5Zx";
-//    private static final String db = "defaultdb";
-    
+public class ConnectionFactory {    
     
     private String host,port,db,user,password;
     

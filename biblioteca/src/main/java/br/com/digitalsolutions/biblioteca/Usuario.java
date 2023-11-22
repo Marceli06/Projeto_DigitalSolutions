@@ -10,6 +10,13 @@ public class Usuario {
     private String emal;
     private String senha;
     private int tipo;
+
+    public Usuario(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+    
+    
     
     public Usuario(int id, String nome, String email, String senha, int tipo){
         this.id = id;

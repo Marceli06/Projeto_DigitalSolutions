@@ -4,18 +4,27 @@
  */
 package br.com.digitalsolutions.biblioteca;
 
+import java.util.Properties;
+
 /**
  *
  * @author Silas
  */
 public class TelaMenu extends javax.swing.JFrame {
-
+    private Properties properties;
     /**
      * Creates new form TelaMenu
      */
     public TelaMenu() {
         initComponents();
     }
+
+    public TelaMenu(Properties properties) {
+        this();
+        this.properties = properties;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,15 +132,16 @@ public class TelaMenu extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroUsuario().setVisible(true);
+                new TelaCadastroUsuario(properties).setVisible(true);
             }
         });
+        this.dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                new TelaLogin(properties).setVisible(true);
             }
         });
        this.dispose();

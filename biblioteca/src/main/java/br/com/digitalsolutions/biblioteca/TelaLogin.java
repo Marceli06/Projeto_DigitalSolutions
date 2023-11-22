@@ -6,6 +6,8 @@ package br.com.digitalsolutions.biblioteca;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +30,30 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         
+        edtSenha.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent arg0) {
+                if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+                    Entrar();
+                }
+            }
+        });
+        btnEntrar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent arg0) {
+                if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+                    Entrar();
+                }
+            }
+        });
+        edtUsuario.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent arg0) {
+                if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+                    Entrar();
+                }
+            }
+        });
     }
     
     public TelaLogin(java.util.Properties properties){
@@ -63,7 +89,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jBemVindo.setFont(new java.awt.Font("Georgia", 3, 100)); // NOI18N
         jBemVindo.setForeground(new java.awt.Color(255, 255, 255));
         jBemVindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jBemVindo.setText("Bem-vindo");
+        jBemVindo.setText("Digital Solutions");
 
         jLogin.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 40)); // NOI18N
         jLogin.setText("Login");
@@ -144,7 +170,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jBemVindo, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE))
+                    .addComponent(jBemVindo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -210,7 +236,7 @@ public class TelaLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-            
+        
             
     }
     
@@ -220,10 +246,11 @@ public class TelaLogin extends javax.swing.JFrame {
         senhaEdt = edtSenha.getText();
                 
         if ( usuarioEdt.length() != 0 ){
+            var usuario = new Usuario(usuarioEdt, senhaEdt);
             var UsuarioDB = new UsuarioDB(properties);
              
             try{
-                UsuarioDB.dadosUsuario(usuarioEdt,senhaEdt);
+                UsuarioDB.dadosUsuario(usuario);
 
                 if(UsuarioDB.getNome().equals(usuarioEdt) && UsuarioDB.getSenha().equals(senhaEdt)){
                     this.dispose();
@@ -232,14 +259,14 @@ public class TelaLogin extends javax.swing.JFrame {
                         case 1:
                             java.awt.EventQueue.invokeLater(new Runnable() {
                                 public void run() {
-                                    new TelaCadastroLivros().setVisible(true);
+                                    new TelaCadastroLivros(properties).setVisible(true);
                                 }
                             });
                             break;
                         case 2:
                             java.awt.EventQueue.invokeLater(new Runnable() {
                                 public void run() {
-                                    new TelaMenu().setVisible(true);
+                                    new TelaMenu(properties).setVisible(true);
                                 }
                             });
                             break;

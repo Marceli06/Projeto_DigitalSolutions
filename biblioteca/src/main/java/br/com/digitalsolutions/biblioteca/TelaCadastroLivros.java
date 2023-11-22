@@ -4,6 +4,7 @@
  */
 package br.com.digitalsolutions.biblioteca;
 
+import java.util.Properties;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,11 +17,18 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
      * Creates new form TelaCadastroLivros
      */
     
-    String titulo,editora,autor,genero;
+    private String titulo,editora,autor,genero;
+    private Properties properties;
+    
     
     
     public TelaCadastroLivros() {
         initComponents();
+    }
+
+    public TelaCadastroLivros(Properties properties) {
+        this();
+        this.properties = properties;
     }
 
     /**
@@ -183,7 +191,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicialUsuario().setVisible(true);
+                new TelaInicialUsuario(properties).setVisible(true);
             }
         });
         dispose();

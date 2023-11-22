@@ -21,7 +21,7 @@ public class UsuarioDB {
         this.properties = properties;
     }
     
-    public void dadosUsuario(String nomeLog, String senhaLog) throws Exception{
+    public void dadosUsuario(Usuario s) throws Exception{
         int id = 0;
         String nome = "";
         String email = "";
@@ -36,7 +36,7 @@ public class UsuarioDB {
             String sql = "SELECT * FROM usuario_simples WHERE nome = ?;";
             try(var ps = conexao.prepareStatement(sql)){
                 
-                ps.setString(1, nomeLog);
+                ps.setString(1, s.getNome());
                 // executa um select
                 try(ResultSet rs = ps.executeQuery();){
                     while (rs.next()) {

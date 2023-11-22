@@ -19,7 +19,7 @@ public class Biblioteca {
         properties.load(new FileInputStream(new File("conf.properties")));
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                new TelaLogin(properties).setVisible(true);
             }
         });
     }
