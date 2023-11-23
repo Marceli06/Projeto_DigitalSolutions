@@ -12,11 +12,13 @@ import java.util.Properties;
  */
 public class TelaInicialUsuario extends javax.swing.JFrame {
     private Properties properties;
+    private LivroDB livroDB = new LivroDB();
     /**
      * Creates new form TelaInicialUsuario
      */
     public TelaInicialUsuario() {
         initComponents();
+        //livroDB.ExibirLivros(tbLivros);
     }
 
     public TelaInicialUsuario(Properties properties) {
@@ -39,10 +41,11 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         edtPesquisar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbLivros = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +64,7 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
 
         edtPesquisar.setText("Pesquisar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,20 +72,20 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "nome", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbLivros);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -91,6 +94,13 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -109,7 +119,9 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(btnSair)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(97, 97, 97))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +135,9 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(btnSair)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSair)
+                    .addComponent(jButton1))
                 .addGap(247, 247, 247)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -169,6 +183,15 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaCadastroLivros(properties).setVisible(true);
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,13 +202,14 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JTextField edtPesquisar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable tbLivros;
     // End of variables declaration//GEN-END:variables
 }

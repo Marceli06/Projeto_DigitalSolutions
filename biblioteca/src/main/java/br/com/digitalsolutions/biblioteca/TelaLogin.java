@@ -30,6 +30,8 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         
+        this.setLocationRelativeTo(null);
+        
         edtSenha.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent arg0) {
@@ -85,6 +87,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(100, 100));
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 153));
+        jPanel1.setAutoscrolls(true);
 
         jBemVindo.setFont(new java.awt.Font("Georgia", 3, 100)); // NOI18N
         jBemVindo.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,7 +195,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
