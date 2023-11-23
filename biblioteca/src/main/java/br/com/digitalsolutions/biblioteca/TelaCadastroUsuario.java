@@ -5,6 +5,8 @@
 package br.com.digitalsolutions.biblioteca;
 
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
@@ -22,6 +24,31 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
      */
     public TelaCadastroUsuario() {
         initComponents();
+        
+//        edtSenha.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyPressed(KeyEvent arg0) {
+//                if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+//                    Entrar();
+//                }
+//            }
+//        });
+//        btnEntrar.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyPressed(KeyEvent arg0) {
+//                if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+//                    Entrar();
+//                }
+//            }
+//        });
+//        edtUsuario.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyPressed(KeyEvent arg0) {
+//                if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+//                    Entrar();
+//                }
+//            }
+//        });
     }
     
     public TelaCadastroUsuario(java.util.Properties properties){
@@ -194,7 +221,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                new TelaMenu(properties).setVisible(true);
             }
         });
        this.dispose();
@@ -255,6 +282,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                             cadUse.cadastarUsuario(novoUsuario);
                             JOptionPane.showMessageDialog(null, "Usuário Cadastrado");
                             this.dispose();
+                            {
+                                java.awt.EventQueue.invokeLater(new Runnable() {
+                                    public void run() {
+                                        new TelaMenu(properties).setVisible(true);
+                                    }
+                                });
+                            }
                         }catch(Exception e){
                             JOptionPane.showMessageDialog(null, "Tente novamente mais tarde");
                         }

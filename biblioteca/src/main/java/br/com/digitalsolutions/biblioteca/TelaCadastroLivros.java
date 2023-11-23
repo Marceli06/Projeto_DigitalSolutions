@@ -22,13 +22,15 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     
     
     
-    public TelaCadastroLivros() {
+    public TelaCadastroLivros() { //Quando a tela estiver pronta;
         initComponents();
+        
     }
 
     public TelaCadastroLivros(Properties properties) {
         this();
         this.properties = properties;
+        
     }
 
     /**
@@ -225,6 +227,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        LivroDB livroDB = new LivroDB();
         
     }
     
