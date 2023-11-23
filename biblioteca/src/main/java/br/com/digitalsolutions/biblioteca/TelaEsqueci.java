@@ -48,10 +48,13 @@ public class TelaEsqueci extends javax.swing.JFrame {
         jInsiraEmail.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jInsiraEmail.setText("Insira seu email:");
 
+        edtInserirEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
+
         btnConfirmar.setBackground(new java.awt.Color(102, 102, 102));
         btnConfirmar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -80,7 +83,7 @@ public class TelaEsqueci extends javax.swing.JFrame {
                 .addComponent(edtInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnConfirmar)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

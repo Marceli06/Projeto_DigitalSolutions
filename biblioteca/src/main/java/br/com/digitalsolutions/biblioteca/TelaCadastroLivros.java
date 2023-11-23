@@ -66,19 +66,28 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         jTitulo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jTitulo.setText("Título:");
 
+        edtTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
+
         jGenero.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jGenero.setText("Gênero:");
+
+        edtGenero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
         jEditora.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jEditora.setText("Editora:");
 
+        edtEditora.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
+
         jAutor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jAutor.setText("Autor:");
+
+        edtAutor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
         btnCadastrar.setBackground(new java.awt.Color(102, 102, 102));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -150,7 +159,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
                     .addComponent(edtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
                 .addComponent(btnCadastrar)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
