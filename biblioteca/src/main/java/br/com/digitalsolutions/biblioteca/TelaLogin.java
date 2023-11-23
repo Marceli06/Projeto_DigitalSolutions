@@ -97,13 +97,18 @@ public class TelaLogin extends javax.swing.JFrame {
         jUsuario.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jUsuario.setText(" Usuário:");
 
+        edtUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
+
         jSenha.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jSenha.setText("Senha:");
+
+        edtSenha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
         btnEntrar.setBackground(new java.awt.Color(102, 102, 102));
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
+        btnEntrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
         btnEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEntrarMouseClicked(evt);
@@ -180,7 +185,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jBemVindo)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,7 +264,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         case 1:
                             java.awt.EventQueue.invokeLater(new Runnable() {
                                 public void run() {
-                                    new TelaCadastroLivros(properties).setVisible(true);
+                                    new TelaInicialUsuario(properties).setVisible(true);
                                 }
                             });
                             break;
