@@ -10,7 +10,7 @@ import java.util.Properties;
 
 /**
  *
- * @author Silas Rodrigues
+ * @author Digital Solutions
  */
 public class Biblioteca {
 
