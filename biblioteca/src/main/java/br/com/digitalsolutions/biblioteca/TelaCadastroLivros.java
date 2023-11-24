@@ -27,7 +27,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         
     }
 
-    public TelaCadastroLivros(Properties properties) {
+    public TelaCadastroLivros(java.util.Properties properties) {
         this();
         this.properties = properties;
         
@@ -245,7 +245,7 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
                 livroDB.cadastrarLivro(livro);
                 JOptionPane.showMessageDialog(null, "Livro Cadastrado");
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Erro");
+                JOptionPane.showMessageDialog(null, "Erro" + e);
             }
             
         }else{

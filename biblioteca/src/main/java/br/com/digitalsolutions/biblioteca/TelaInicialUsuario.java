@@ -18,7 +18,12 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
      */
     public TelaInicialUsuario() {
         initComponents();
-        //livroDB.ExibirLivros(tbLivros);
+        try{
+            System.out.println("teste");
+            livroDB.ExibirLivros(tbLivros);
+        }catch(Exception e){
+            
+        }
     }
 
     public TelaInicialUsuario(Properties properties) {
@@ -69,10 +74,14 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "nome", "Title 2", "Title 3", "Title 4"
+                "titulo", "editora", "genero", "autor"
             }
         ));
         jScrollPane1.setViewportView(tbLivros);
