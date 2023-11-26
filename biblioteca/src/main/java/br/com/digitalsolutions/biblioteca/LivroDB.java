@@ -21,7 +21,8 @@ public class LivroDB {
     private String titulo,autor,genero,editora;
     private Properties properties;
     
-    public void LivroDB(Properties properties){
+    
+    public LivroDB(java.util.Properties properties){
         this.properties = properties;
     }
     
@@ -35,23 +36,12 @@ public class LivroDB {
             
             try(var ps = conexao.prepareStatement(sql)){
                 
-                // executa um select
-                try(ResultSet rs = ps.executeQuery();){ 
-                    
-                
-                    while (rs.next()) {    
-        
-           
-                        ps.setString(1,livro.getTitulo());
-                        ps.setString(2,livro.getAutor());
-                        ps.setString(3,livro.getGenero());
-                        ps.setString(4,livro.getEditora());
+                ps.setString(1,livro.getTitulo());
+                ps.setString(2,livro.getAutor());
+                ps.setString(3,livro.getGenero());
+                ps.setString(4,livro.getEditora());
 
-                        ps.execute();
-            
-                    }
-                }
-            
+                ps.execute();
             }
         }
     }

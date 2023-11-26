@@ -12,7 +12,7 @@ import java.util.Properties;
  */
 public class TelaInicialUsuario extends javax.swing.JFrame {
     private Properties properties;
-    private LivroDB livroDB = new LivroDB();
+    private LivroDB livroDB = new LivroDB(properties);
     /**
      * Creates new form TelaInicialUsuario
      */

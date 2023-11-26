@@ -227,7 +227,6 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        LivroDB livroDB = new LivroDB();
         
     }
     
@@ -239,11 +238,20 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
                 
         if (titulo.length()!= 0 && autor.length()!= 0 && genero.length() !=0 && editora.length() !=0){
             Livro livro = new Livro(titulo,autor,genero,editora);
-            LivroDB livroDB = new LivroDB();
+            LivroDB livroDB = new LivroDB(properties);
             
             try{
                 livroDB.cadastrarLivro(livro);
                 JOptionPane.showMessageDialog(null, "Livro Cadastrado");
+                this.dispose();
+                {
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            new TelaInicialUsuario(properties).setVisible(true);
+                        }
+                    });
+                }
+                
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Erro" + e);
             }
