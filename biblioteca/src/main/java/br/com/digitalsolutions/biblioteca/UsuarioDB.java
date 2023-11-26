@@ -60,9 +60,7 @@ public class UsuarioDB {
     
     public void cadastarUsuario(UsuarioCadastrado use) throws Exception{
         
-        
         var fabrica = new ConnectionFactory(properties);
-        
         
         try(var conexao = fabrica.conectar()){
             

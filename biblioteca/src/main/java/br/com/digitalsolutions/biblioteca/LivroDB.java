@@ -26,11 +26,13 @@ public class LivroDB {
     }
     
     public void cadastrarLivro(Livro livro) throws Exception{
-        String sql = "INSERT INTO Livro(titulo,autor,genero,editora) VALUES (?,?,?,?);";
         
         var fabrica = new ConnectionFactory(properties);
-        
+      
         try(var conexao = fabrica.conectar()){
+            
+            String sql = "INSERT INTO Livro(titulo,autor,genero,editora) VALUES (?,?,?,?);";
+            
             try(var ps = conexao.prepareStatement(sql)){
                 
                 // executa um select
