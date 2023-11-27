@@ -11,6 +11,8 @@ package br.com.digitalsolutions.biblioteca;
 public class Livro {
     private String titulo,autor,genero,editora;
     private int id;
+    
+    public Livro(){}
 
     public Livro(String titulo, String autor, String genero, String editora) {
         this.titulo = titulo;
