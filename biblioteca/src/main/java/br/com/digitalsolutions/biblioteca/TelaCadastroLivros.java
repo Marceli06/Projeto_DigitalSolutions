@@ -216,11 +216,12 @@ public class TelaCadastroLivros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaInicialUsuario(properties).setVisible(true);
-            }
-        });
+        //if()
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new TelaMenu(properties).setVisible(true);
+                }
+            });
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

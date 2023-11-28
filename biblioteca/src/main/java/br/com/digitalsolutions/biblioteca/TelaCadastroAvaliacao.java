@@ -17,7 +17,7 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
      * Creates new form TelaCadastroLivros
      */
     
-    private String titulo,editora,autor,genero;
+    private String titulo,editora,autor,genero,avaliacao;
     private Properties properties;
     
     
@@ -49,6 +49,8 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +100,18 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel3.setText("Nota:");
+
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jTextField2.setText("Digite o titulo do livro:");
+        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
+        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -114,7 +128,9 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -130,8 +146,12 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
+                .addGap(57, 57, 57)
                 .addComponent(btnCadastrar)
                 .addContainerGap(162, Short.MAX_VALUE))
         );
@@ -184,6 +204,10 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
         jTextField1.setText("");
     }//GEN-LAST:event_jTextField1MouseClicked
 
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+        jTextField2.setText("");
+    }//GEN-LAST:event_jTextField2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -218,18 +242,19 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
     }
     
     public void Cadastrar(){
-        /*titulo = edtTitulo.getText();
-        autor = edtAutor.getText();
+        String nome = jTextField2.getText();
+        String nota = jTextField1.getText();
+        /*autor = edtAutor.getText();
         editora = edtEditora.getText();
         genero = edtGenero.getText();*/
                 
-        if (titulo.length()!= 0 && autor.length()!= 0 && genero.length() !=0 && editora.length() !=0){
-            Livro livro = new Livro(titulo,autor,genero,editora);
+        if (nome.length()!= 0 && nota.length()!= 0 ){
+            Livro livro = new Livro(avaliacao);
             LivroDB livroDB = new LivroDB(properties);
             
             try{
-                livroDB.cadastrarLivro(livro);
-                JOptionPane.showMessageDialog(null, "Livro Cadastrado");
+                livroDB.avaliar(livro ,nome ,nota);
+                JOptionPane.showMessageDialog(null, "Avaliação Cadastrada");
                 this.dispose();
                 {
                     java.awt.EventQueue.invokeLater(new Runnable() {
@@ -257,8 +282,10 @@ public class TelaCadastroAvaliacao extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

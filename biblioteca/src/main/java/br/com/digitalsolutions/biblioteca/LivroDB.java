@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class LivroDB {
     private int id;
-    private String titulo,autor,genero,editora;
+    private String titulo,autor,genero,editora,avaliacao;
     private Properties properties;
     private List <Livro> lista = new ArrayList<>();
     
@@ -50,9 +50,11 @@ public class LivroDB {
         }
     }
     
-    public void ExibirLivros() throws Exception{
+    public List<Livro> ExibirLivros() throws Exception{
         int i = 0;
         var fabrica = new ConnectionFactory(properties);
+        StringBuilder sb = new StringBuilder();
+        
         
         try(var conexao = fabrica.conectar()){
             
@@ -62,7 +64,6 @@ public class LivroDB {
                 
                 // executa um select
                 try(ResultSet rs = ps.executeQuery();){ 
-                    
                 
                     while (rs.next()) {
                        
@@ -71,11 +72,22 @@ public class LivroDB {
                         editora = rs.getString("editora");
                         genero = rs.getString("genero");
                         autor = rs.getString("autor");
+                        avaliacao = rs.getString("avaliacao");
                         
                         //Livro livro = new Livro(id, titulo, editora, genero, autor);
-                        Livro l = new Livro(titulo,editora,genero,autor);
+                        Livro l = new Livro(titulo,editora,genero,autor,avaliacao);
+                        //sb.append(l.getTitulo() + " \n" + l.getEditora());
                         lista.add(l);
+                        //sb.append();
+
+                        /*for(Livro a : lista){
+                            System.out.println(a.getTitulo() + " " + a.getEditora());
+                            JOptionPane.showMessageDialog(null, l.getTitulo());
+                        }*/
+                        
                     }
+                return lista;
+                
                 }catch(Exception e){
                     System.out.println("Erro misterioso");
                 }
@@ -85,9 +97,8 @@ public class LivroDB {
         }catch(SQLException e){
             System.out.println(e);
         }
-        for(Livro a : lista){
-            System.out.println(a.getTitulo() + " " + a.getEditora());
-        }
+        
+        return lista;
     }
     
     /*public List<Livro> obterProdutosDoBanco() throws Exception{
@@ -125,6 +136,24 @@ public class LivroDB {
     }*/
     
     
+    public void avaliar(Livro livro, String nome, String nota) throws Exception{
+        var fabrica = new ConnectionFactory(properties);
+      
+        try(var conexao = fabrica.conectar()){
+            
+            String sql = "UPDATE `Livro` SET avaliacao = '"+ nota+"' WHERE `TITULO` = '"+ nome +"';";
+            
+            try(var ps = conexao.prepareStatement(sql)){
+                
+                
+                //ps.setInt(1,livro.getAvaliacao());
+                //ps.setString(2,nome);
+                
+                
+                ps.execute();
+            }
+        }
+    }
     
 
 }

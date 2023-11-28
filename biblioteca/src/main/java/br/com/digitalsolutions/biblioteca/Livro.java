@@ -9,7 +9,7 @@ package br.com.digitalsolutions.biblioteca;
  * @author Sabrina
  */
 public class Livro {
-    private String titulo,autor,genero,editora;
+    private String titulo,autor,genero,editora,avaliacao;
     private int id;
     
     public Livro(){}
@@ -20,7 +20,28 @@ public class Livro {
         this.genero = genero;
         this.editora = editora;
     }
+    
+    public Livro(String titulo, String autor, String genero, String editora, String avaliacao) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.genero = genero;
+        this.editora = editora;
+        this.avaliacao = avaliacao;
+    }
+    
+    public Livro(String avalicao){
+        this.avaliacao = avalicao;
+    }
 
+    public String getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(String avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    
     public String getTitulo() {
         return titulo;
     }
